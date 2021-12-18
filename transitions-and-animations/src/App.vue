@@ -14,9 +14,13 @@
           <div class="alert alert-info" v-if="show">This is some info</div>
           <!-- <div class="alert alert-info" v-else>And this is more info</div> -->
         </transition>
-        <transition name="slide" type="animation">
-          <div class="alert alert-info" v-if="slide">This is some info</div>
-          <!-- <div class="alert alert-info" v-else>And this is more info</div> -->
+        <transition name="slide" type="animation" mode="out-in">
+          <div class="alert alert-info" v-if="slide" key="info1">
+            This is some info
+          </div>
+          <div class="alert alert-info" v-else key="info2">
+            And this is more info
+          </div>
         </transition>
       </div>
     </div>
