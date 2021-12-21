@@ -22,6 +22,28 @@
             And this is more info
           </div>
         </transition>
+        <hr />
+
+        <button class="btn btn-primary" @click="load = !load">
+          Load / Remove Element
+        </button>
+        <br />
+        <br />
+        <transition
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @after-enter="afterEnter"
+          @enter-cancelled="enterCancelled"
+          @before-leave="beforeLeave"
+          @leave="leave"
+          @after-leave="afterLeave"
+          @leave-cancelled="leaveCancelled"
+        >
+          <div
+            style="width: 100px; height: 100px; background-color: lightgreen"
+            v-if="load"
+          ></div>
+        </transition>
       </div>
     </div>
   </div>
@@ -33,7 +55,22 @@ export default {
     return {
       show: false,
       slide: false,
+      load: false,
     };
+  },
+  methods: {
+    beforeEnter(el) {},
+    enter(el, done) {
+      done();
+    },
+    afterEnter(el) {},
+    enterCancelled(el) {},
+    beforeLeave(el) {},
+    leave(el, done) {
+      done();
+    },
+    afterLeave(el) {},
+    leaveCancelled(el) {},
   },
 };
 </script>
